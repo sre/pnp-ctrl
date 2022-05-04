@@ -1,0 +1,29 @@
+[package]
+name = "pnp-ctrl"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 'z' # turn on maximum optimizations.
+lto = true      # Link-time-optimizations for further size reduction
+
+[dependencies]
+embedded-hal = "0.2"
+nb = "1"
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+usb-device = "0.2"
+stm32-usbd = "0.6"
+usbd-serial = "0.1"
+panic-halt = "0.2"
+ws2812-spi = { path = "../ws2812-spi-rs" } # "0.4"
+tmc5072 = { path = "../tmc5072" }
+smart-leds = "0.3"
+ina219 = "0.1"
+numtoa = "0.2"
+shared-bus = "0.2"
+stm32f4xx-hal = { version = "0.15", features = ["stm32f401", "usb_fs", "rt"] }
+mcp23s17 = { path = "../mcp23s17" }
+noline = { version = "0.2.0", default-features = false, features = ["embedded"] }
+bitflags = "2.0"
+fixed = "1.23"

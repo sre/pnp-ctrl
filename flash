@@ -1,0 +1,4 @@
+#!/bin/sh
+cargo build --release
+arm-none-eabi-objcopy -O binary target/thumbv7em-none-eabihf/release/pnp-ctrl target/thumbv7em-none-eabihf/release/pnp-ctrl.bin
+dfu-util -a 0 -D target/thumbv7em-none-eabihf/release/pnp-ctrl.bin -s 0x08004000:leave
