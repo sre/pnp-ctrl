@@ -1,0 +1,23 @@
+[package]
+name = "dfu-bootloader"
+description = "DFU bootloader"
+version = "0.1.0"
+authors = ["Sebastian Reichel <sre@ring0.de>"]
+edition = "2021"
+license = "MIT"
+keywords = ["no-std", "usb-device", "dfu"]
+
+[profile.release]
+opt-level = 'z'
+lto = true
+strip = true
+panic = "abort"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-hal = "0.2"
+panic-halt = "0.2"
+usbd-dfu = "0.2"
+stm32f4xx-hal = { version = "0.13", features = ["stm32f401", "usb_fs", "rt"] }
+usb-device = { version = "0.2", features = ["control-buffer-256"] }

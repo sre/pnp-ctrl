@@ -1,0 +1,4 @@
+#!/bin/sh
+cargo build --release
+arm-none-eabi-objcopy -O binary target/thumbv7em-none-eabihf/release/dfu-bootloader target/thumbv7em-none-eabihf/release/dfu-bootloader.bin
+dfu-util -a 0 -D target/thumbv7em-none-eabihf/release/dfu-bootloader.bin -s 0x08000000
