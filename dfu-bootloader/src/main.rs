@@ -243,7 +243,7 @@ fn dfu_init(mode: BootMode) {
         device.TIM2.psc.write(|w| w.psc().bits(psc) );
 
         // Set auto reload to arr
-        unsafe { device.TIM2.arr.write(|w| w.bits(arr)); }
+        device.TIM2.arr.write(|w| w.bits(arr));
 
         // Trigger update event to load the registers
         device.TIM2.cr1.modify(|_, w| w.urs().set_bit());
